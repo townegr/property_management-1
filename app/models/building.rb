@@ -12,5 +12,5 @@ class Building < ActiveRecord::Base
   validates :city, presence: true
   validates :postal_code, presence: true
 
-
+  belongs_to :owner
 end

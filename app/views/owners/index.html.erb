@@ -1,0 +1,10 @@
+<h2>Building Owners</h2>
+
+<% @owners.each do |owner| %>
+  <div>
+    <p><%= owner.first_name %></p>
+    <p><%= owner.last_name %></p>
+    <p><%= owner.buildings.map { |b| b.street_address} %></p>
+    <%= link_to "Delete", owner, method: :delete %>
+  </div>
+<% end %>

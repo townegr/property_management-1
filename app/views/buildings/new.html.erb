@@ -4,5 +4,6 @@
   <%= f.input :state, collection: Building::STATES %>
   <%= f.input :postal_code %>
   <%= f.input :description %>
+  <%= f.association :owner, label_method: :last_name %>
   <%= f.submit %>
 <% end %>

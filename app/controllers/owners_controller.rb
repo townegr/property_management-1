@@ -1,4 +1,8 @@
 class OwnersController < ApplicationController
+  def index
+    @owners = Owner.all
+  end
+
   def new
     @owner = Owner.new
   end
@@ -10,6 +14,12 @@ class OwnersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @owner = Owner.find(params[:id])
+    @owner.delete
+    redirect_to owners_url
   end
 
   private

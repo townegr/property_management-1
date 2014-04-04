@@ -7,4 +7,6 @@ describe Building do
   it {should validate_presence_of(:postal_code)}
 
   it {should ensure_inclusion_of(:state).in_array(Building::STATES)}
+
+  it {should belong_to(:owner)}
 end

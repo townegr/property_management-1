@@ -7,5 +7,6 @@ FactoryGirl.define do
     state "MA"
     postal_code 12345
     description "This is my building"
+    owner
   end
 end

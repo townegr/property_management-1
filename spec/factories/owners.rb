@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :owner do
     first_name "John"
-    last_name "Doe"
+    sequence(:last_name) { |n| "Doe #{n}th"}
     email "john.doe@igoogle.com"
     company_name "Fantastic Four"
   end
