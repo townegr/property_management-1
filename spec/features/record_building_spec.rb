@@ -29,8 +29,27 @@ feature 'record a building', %{
     expect(page).to have_content('Building is successfully saved')
   end
 
-  scenario 'not all valid attributes are supplied'
+  scenario 'receives error when not all valid attributes are supplied' do
+    visit new_building_path
+    click_on 'Create Building'
+    #save_and_open_page
 
-  scenario 'Only US states are accepted'
+    within ".input.building_street_address" do
+      expect(page).to have_content("can't be blank")
+    end
+
+    within ".input.building_city" do
+      expect(page).to have_content("can't be blank")
+    end
+
+    within ".input.building_state" do
+      expect(page).to have_content("can't be blank")
+    end
+
+    within ".input.building_postal_code" do
+      expect(page).to have_content("can't be blank")
+    end
+  end
+
 
 end
