@@ -17,7 +17,6 @@ feature 'record a building', %{
   scenario 'all valid attributes are supplied' do
     prev_count = Building.count
     building = FactoryGirl.build(:building)
-    #'buildings/new'
     visit new_building_path
     fill_in 'Street address', with: building.street_address
     fill_in 'City', with: building.city
@@ -32,7 +31,6 @@ feature 'record a building', %{
   scenario 'receives error when not all valid attributes are supplied' do
     visit new_building_path
     click_on 'Create Building'
-    #save_and_open_page
 
     within ".input.building_street_address" do
       expect(page).to have_content("can't be blank")
