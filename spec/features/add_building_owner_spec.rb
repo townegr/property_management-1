@@ -26,5 +26,20 @@ feature 'add a building owner', %q{
     expect(page).to have_content('Owner is successfully saved')
   end
 
-  scenario 'receives error when not all valid attributes are supplied'
+  scenario 'receives error when not all valid attributes are supplied' do
+    visit new_owner_path
+    click_on 'Create Owner'
+
+    within ".input.owner_first_name" do
+      expect(page).to have_content("can't be blank")
+    end
+
+    within ".input.owner_last_name" do
+      expect(page).to have_content("can't be blank")
+    end
+
+    within ".input.owner_email" do
+      expect(page).to have_content("can't be blank")
+    end
+  end
 end
